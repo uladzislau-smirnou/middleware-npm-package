@@ -45,3 +45,4 @@ function initializeSK8Middleware({ apiKey, baseUrl }) {
 }
 
 module.exports = initializeSK8Middleware;
+module.exports = { initializeSK8Middleware };
