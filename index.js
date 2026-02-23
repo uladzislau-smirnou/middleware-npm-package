@@ -7,9 +7,17 @@ function initializeSK8Middleware({ apiKey, baseUrl }) {
 
   return async function embeddedMiddleware(req, res, next) {
     try {
+      const clientId = req.clientId;
+      if (clientId === null || clientId === undefined || clientId === '') {
+        throw new Error(
+          'SK8 embedded middleware: req.clientId is required and cannot be empty',
+        );
+      }
+
       const targetUrl = `${finalBaseUrl}${req.url}`;
       const headers = {
         'x-api-key': apiKey,
+        'x-client-id': String(clientId),
       };
 
       if (req.headers['content-type']) {
