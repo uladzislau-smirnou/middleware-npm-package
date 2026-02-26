@@ -17,7 +17,7 @@ function initializeSK8Middleware({ apiKey, baseUrl }) {
       const targetUrl = `${finalBaseUrl}${req.url}`;
       const headers = {
         'x-api-key': apiKey,
-        'x-client-id': String(clientId),
+        'x-external-id': String(clientId),
       };
 
       if (req.headers['content-type']) {
